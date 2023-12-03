@@ -1,0 +1,26 @@
+W moim programie są umieszczone takie structury:
+Date, mieści w sobie dzień, miesiąc i rok. Stworzona dla opisu dat premier gier.
+Następna structura to Game, mieści w sobie nazwę gry, nazwę kategorii, swoją cenę i datę premiery.
+Structura GamesStore mieści w sobie tablicę structur games i 2D tablicę structur games, którą uzupełniam, nie wykorzystuje w programie i wyczyszczam po zakończeniu działania programu.
+W mainie są funkcje initializeGamesStore, która tworzy sklep. Jeśli inicjalizacja udała się,
+jest wykonywana funkcja runGamesStore. Po skończeniu tej funkcji zawartość sklepu jest zapisywana do nowego pliku.
+Po zapisaniu sklepu do pliku za pomocą funkcji writeGamesStoreToFile funkcja clearGamesStore zwalnia pamięć.
+W funkcji initializeGamesStore otwieramy plik i odczytujemy informacje o grach oraz kategorjach. Ilość gier i kategorii 
+pomagają znaleźć funkcje getCountOfGames i getCountOfCategories.
+Na końcu inicjalizacji jest wywoływana funkcja fromOneDimensionalToTwoDimensional, która tworzy 2D tablicę gier, pierwszy wierz - jedna kategoria, drugi wierz - druga kategoria i tak dalej.
+W środku funkcji fromOneDimensionalToTwoDimensional jest wywoływana funkcja getCountOfGamesInCategory, która daje zrozumieć, jaki rozmiar ma każdy wiersz.
+Pracuje poprawnie tylko wtedy, gdy wszystkie gry z jednej kategorii są zapisywane w pliku jedna po drugiej. Zapis w pliku musi obowiązkowo mieć taki wygląd:
+Name of game,Name of Category1,price,day|month|year
+Name of game,Name of Category2,price,day|month|year
+&
+Name of Category1
+Name of Category2
+W środku runGameStore możemy wykonać następujące działania:
+Popatrzeć na gry z poszczególnych kategorii;(funkcja findGamesByCategory,outputListOfGames)
+Znaleźć grę za częścią nazwy lub całąnazwą, ale tylko wtedy, gdy piszemy taki sam rozmiar liter, jaki ma nazwa; (funkcja findGameByPartOfName,outputListOfGames)
+Posortować gry 	według id, ceny, daty premiery;(funkcja sortGamesById, ortGamesByPrice, sortGamesByReleaseDate, chooseSortTypeMenu (malejąco lub rosnąco),outputListOfGames)
+Dodać grę do koszyka zapomocą id;(funkcja findGameById, outputListOfGames, addGamePriceToSum)
+Dodać nową grę do sklepu;(funkcja addNewGame)
+Usunąć grę z sklepu za pomocą id;(funkcja deleteGame)
+Obliczyć własną sumęze zniżkąi skończyć program.(funkcja countDiscountForSum)
+Program stworzony za pomocą Visual Studio 2022, więc może mieścić w sobie funkcje, nie działające w innych środowiskach
